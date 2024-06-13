@@ -1,14 +1,13 @@
-import { Footer } from "./components/footer/Footer";
 import { Navbar } from "./components/navbar/navBar";
-
+import { ItemListConatiner } from "./page/itemListContainer/ItemListConatiner";
 
 function App() {
-  return(
+  return (
     <div>
       <Navbar />
-      <Footer />
+      <ItemListConatiner greeting={"Buenos dias."} />
     </div>
-  )
+  );
 }
 
 export default App;

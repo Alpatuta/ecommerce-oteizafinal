@@ -1,7 +1,30 @@
-.navbarBackground {
-    background-color: #18181B;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.navbarContainer {
+  font-family: "Poppins", sans-serif;
+  background-color: #18181b;
+  color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
 }
 
-.navbarFontColor {
-    color: #ccc;
+.navbarList {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+img {
+  padding: 0;
+  width: 100px;
+  height: 100px;
 }
