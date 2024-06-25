@@ -1,8 +1,9 @@
-import { FaCartPlus } from "react-icons/fa";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+
 const CartWidget = () => {
   return (
     <div>
-      <FaCartPlus color="white" size={40} />
+      <MdOutlineAddShoppingCart size={30} />
     </div>
   );
 };

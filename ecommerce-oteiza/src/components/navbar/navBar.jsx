@@ -1,5 +1,5 @@
+import CartWidget from "../cartWidget/CartWidget";
 import "./navBarStyles.css";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 export const Navbar = () => {
   return (
@@ -24,7 +24,7 @@ export const Navbar = () => {
         </li>
       </ul>
 
-      <MdOutlineAddShoppingCart size={30} />
+      <CartWidget />
     </div>
   );
 };
