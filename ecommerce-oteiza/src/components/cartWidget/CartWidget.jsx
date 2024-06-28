@@ -1,10 +1,15 @@
-import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { Badge } from "@mui/material";
+import { Link } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const CartWidget = () => {
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <MdOutlineAddShoppingCart size={30} />
-      <p>4</p>
+    <div>
+      <Link to="/cart">
+        <Badge badgeContent={4} color="secondary">
+          <ShoppingCartIcon color="white" />
+        </Badge>
+      </Link>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="footer-section">
       <ul>
         <li>instagram</li>
         <li>X</li>

@@ -1,9 +1,10 @@
 import { ProductCard } from "../../components/productCard/ProductCard";
+import "./itemListStyles.css";
 
 const ItemList = ({ items }) => {
   console.log(items);
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
+    <div className="item-list-style">
       {items.map((elemento) => {
         return (
           <ProductCard
@@ -11,6 +12,8 @@ const ItemList = ({ items }) => {
             title={elemento.title}
             description={elemento.description}
             price={elemento.price}
+            id={elemento.id}
+            img={elemento.img}
           />
         );
       })}
