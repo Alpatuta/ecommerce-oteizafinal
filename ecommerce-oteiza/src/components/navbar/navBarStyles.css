@@ -2,8 +2,7 @@
 
 .navbarContainer {
   font-family: "Poppins", sans-serif;
-  background-color: #18181b;
-  color: #ccc;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -21,7 +20,7 @@
 
 .links a {
   position: relative;
-  color: #fff;
+  color: black;
 }
 
 .links a::after {
@@ -42,11 +41,11 @@
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 
-.img-navbar {
-  padding: 0;
+.icon-navbar {
+  padding-left: 0.7rem;
   width: 100px;
   height: 100px;
   align-items: center;

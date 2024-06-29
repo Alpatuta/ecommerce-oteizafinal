@@ -1,6 +1,8 @@
 import CartWidget from "../cartWidget/CartWidget";
 import "./navBarStyles.css";
 import { Link } from "react-router-dom";
+import { GiMuscleUp } from "react-icons/gi";
+import { IconContext } from "react-icons";
 
 export const Navbar = () => {
   return (
@@ -8,11 +10,13 @@ export const Navbar = () => {
       <>
         <div className="navbarContainer">
           <Link to="/">
-            <img
-              src="https://res.cloudinary.com/dfa3ts2kx/image/upload/v1718299051/98d7eff26bbdf391ae56288894e9d806_e4q9wt.jpg"
-              alt=""
-              className="img-navbar"
-            />
+            <IconContext.Provider
+              value={{ color: "black", size: "8rem", className: "icon-navbar" }}
+            >
+              <div>
+                <GiMuscleUp />
+              </div>
+            </IconContext.Provider>
           </Link>
 
           <ul className="navbarList">

@@ -1,11 +1,11 @@
 export let products = [
   {
     id: 1,
-    title: "Whey protein star nutrition 3kg",
+    title: "Protein star nutrition 3kg",
     price: 5900,
     description:
       "Whey Protein de Star Nutrition: Suplemento de alta calidad para crecimiento muscular y recuperación eficiente.",
-    img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1718748379/PLATINUM_20WHEY_20PROTEIN_20-_20Cookies_20And_20Cream_20-_203_20KG_tx5eou.png",
+    img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1719683226/338645-800-800_q0b2z4.png",
     stock: 10,
     category: "proteinas",
   },
@@ -27,7 +27,7 @@ export let products = [
     description:
       "Pre-entreno Star Nutrition: Aumenta tu energía, resistencia y enfoque con ingredientes de alta calidad y rápida absorción.",
     category: "pre-entrenos",
-    img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1718748560/pump_v8_vbjovh.webp",
+    img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1719683356/pump_v8_vbjovh_lobgxj.webp",
   },
   {
     id: 4,
