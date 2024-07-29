@@ -1,7 +1,7 @@
 export let products = [
   {
     id: 1,
-    title: "Protein star nutrition 3kg",
+    title: "Protein star nutrition de 3kg",
     price: 5900,
     description:
       "Whey Protein de Star Nutrition: Suplemento de alta calidad para crecimiento muscular y recuperación eficiente.",
@@ -11,11 +11,11 @@ export let products = [
   },
   {
     id: 2,
-    title: "Creatina star nutrition 300g",
+    title: "Creatina star nutrition monohidratada 300g",
     price: 2000,
     stock: 5,
     description:
-      "La creatina de Star Nutrition mejora el rendimiento físico, incrementa la fuerza y acelera la recuperación muscular.",
+      "Creatina Star Nutrition: Mejora rendimiento, aumenta fuerza y volumen muscular, ideal para deportistas y entrenamientos intensos.",
     category: "creatinas",
     img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1718748486/thumb.php_buelxl.png",
   },
@@ -31,11 +31,11 @@ export let products = [
   },
   {
     id: 4,
-    title: "Creatina cibeles 350g",
+    title: "Creatina cibeles monohidratada de 350g",
     price: 2400,
     stock: 5,
     description:
-      "La creatina de Cibeles mejora la fuerza y el rendimiento muscular, ideal para entrenamientos intensos.",
+      "Creatina Cibeles: Suplemento premium que mejora fuerza, resistencia y recuperación muscular para un rendimiento óptimo.",
     category: "creatinas",
     img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1719350935/cn-creatina_150-removebg-preview_ncnrvu.jpg",
   },

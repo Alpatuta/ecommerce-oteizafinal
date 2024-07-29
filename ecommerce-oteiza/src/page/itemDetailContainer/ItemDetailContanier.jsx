@@ -15,11 +15,7 @@ const ItemDetailContainer = () => {
     }
   }, [id]);
 
-  console.log(item);
-
   const onAdd = (quantity) => {
-    // informacion del producto
-    // cuantas unidades
     let objetoFinal = { ...item, quantity: quantity };
     console.log(objetoFinal);
   };

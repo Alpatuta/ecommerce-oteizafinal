@@ -2,7 +2,6 @@ import { ProductCard } from "../../components/productCard/ProductCard";
 import "./itemListStyles.css";
 
 const ItemList = ({ items }) => {
-  console.log(items);
   return (
     <div className="item-list-style">
       {items.map((elemento) => {
