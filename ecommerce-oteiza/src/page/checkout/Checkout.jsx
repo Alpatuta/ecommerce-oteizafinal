@@ -31,8 +31,6 @@ const Checkout = () => {
       <h1>Aca va el formulario</h1>
 
       <form onSubmit={envioDeFormulario}>
-        {/* Inputs  */}
-
         <input
           type="text"
           placeholder="Ingresa tu nombre"
@@ -51,14 +49,12 @@ const Checkout = () => {
           name="telefono"
           onChange={capturarData}
         />
-        {/* SELECT  */}
 
         <select onChange={handleSelect}>
           <option label="uno" value={"one"} />
           <option label="dos" value={"two"} />
           <option label="tres" value={15} />
         </select>
-        {/* RADIO Buttons  */}
 
         <label>casa</label>
         <input
@@ -75,7 +71,6 @@ const Checkout = () => {
           value="avion"
         />
 
-        {/* RADIO Buttons  */}
         <label>rojo</label>
         <input type="checkbox" value={"rojo"} onChange={handleCheckbox} />
         <label>azul</label>
@@ -85,14 +80,9 @@ const Checkout = () => {
         <label>amarillo</label>
         <input type="checkbox" value={"amarillo"} onChange={handleCheckbox} />
 
-        {/* BOTONES  */}
-
         <button>enviar</button>
         <button type="button">cancelar</button>
       </form>
-
-      {/* <button onClick={() => sumar(10, 5)}>sumar</button> */}
-      {/* <button onClick={sumar}>sumar</button> */}
     </div>
   );
 };

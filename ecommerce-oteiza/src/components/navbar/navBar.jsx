@@ -22,22 +22,22 @@ export const Navbar = () => {
           <ul className="navbarList">
             <li className="links">
               <Link to="/category/proteinas">
-                <a href="">Proteinas</a>
+                <p>Proteinas</p>
               </Link>
             </li>
             <li className="links">
               <Link to="/category/creatinas">
-                <a href="">Creatinas</a>
+                <p>Creatinas</p>
               </Link>
             </li>
             <li className="links">
               <Link to="/category/pre-entrenos">
-                <a href="">Pre-entrenos</a>
+                <p>Pre-entrenos</p>
               </Link>
             </li>
             <li className="links">
               <Link to="/">
-                <a href="">Todos</a>
+                <p>Todos</p>
               </Link>
             </li>
           </ul>
