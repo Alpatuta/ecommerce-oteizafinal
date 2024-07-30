@@ -22,9 +22,10 @@ const Cart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "Exito!",
+          text: "Producto borrado.",
           icon: "success",
+          timer: 1000,
         });
         deleteProduct(id);
       }
@@ -48,7 +49,7 @@ const Cart = () => {
           </div>
         );
       })}
-      <p>Total: {total}</p>
+      <p className="total-cart">Total: {total}</p>
       <div className="cart-button">
         {cart.length > 0 && (
           <Button variant="contained" onClick={clearCart}>
