@@ -1,35 +1,29 @@
 import ItemList from "./ItemList";
-import { products } from "../../productos";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { db } from "../../fireBaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
-  const [error, setError] = useState({});
   const { name } = useParams();
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const getProducts = new Promise((resolve, reject) => {
-      let x = true;
+    let productsCollection = collection(db, "products");
 
-      let arrayFiltered = products.filter(
-        (product) => product.category === name
-      );
+    let consulta = productsCollection;
 
-      if (x) {
-        resolve(name ? arrayFiltered : products);
-      } else {
-        reject({ message: "error", codigo: "404" });
-      }
-    });
+    if (name) {
+      consulta = query(productsCollection, where("category", "==", name));
+    }
 
-    getProducts
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        setError(error);
+    let getProducts = getDocs(consulta);
+    getProducts.then((res) => {
+      let arrayValido = res.docs.map((product) => {
+        return { ...product.data(), id: product.id };
       });
+      setItems(arrayValido);
+    });
   }, [name]);
 
   return <ItemList items={items} />;

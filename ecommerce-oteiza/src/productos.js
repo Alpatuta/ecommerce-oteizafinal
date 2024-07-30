@@ -3,11 +3,11 @@ export let products = [
     id: 1,
     title: "Proteina star nutrition de 3kg",
     price: 5900,
+    stock: 10,
     description:
       "Whey Protein de Star Nutrition: Suplemento de alta calidad para crecimiento muscular y recuperación eficiente.",
-    img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1719683226/338645-800-800_q0b2z4.png",
-    stock: 10,
     category: "proteinas",
+    img: "https://res.cloudinary.com/dfa3ts2kx/image/upload/v1719683226/338645-800-800_q0b2z4.png",
   },
   {
     id: 2,
