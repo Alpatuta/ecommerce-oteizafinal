@@ -5,9 +5,7 @@ import * as Yup from "yup";
 const CheckoutFormik = () => {
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: { nombre: "", email: "", confirmar: "", direccion: "" },
-    onSubmit: (data) => {
-      console.log(data);
-    },
+    onSubmit: (data) => {},
     validationSchema: Yup.object({
       nombre: Yup.string()
         .required("Este campo es obligatorio")

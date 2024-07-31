@@ -41,6 +41,17 @@ const Cart = () => {
             <p className="p-product-card">{elemento.quantity}</p>
             <p className="p-product-card-2">${elemento.price}</p>
             <Button
+              disableRipple
+              sx={{
+                bgcolor: "#dc143c",
+                color: "#fff",
+                textTransform: "none",
+                fontFamily: "Poppins",
+                fontSize: "1rem",
+                marginTop: "0.5rem",
+                borderRadius: "6px",
+                "&:hover": { bgcolor: "#b11230" },
+              }}
               variant="contained"
               onClick={() => handleDelete(elemento.id)}
             >
@@ -52,13 +63,46 @@ const Cart = () => {
       <p className="total-cart">Total: {total}</p>
       <div className="cart-button">
         {cart.length > 0 && (
-          <Button variant="contained" onClick={clearCart}>
+          <Button
+            disableRipple
+            sx={{
+              textTransform: "none",
+              fontFamily: "Poppins",
+              fontSize: "1rem",
+              bgcolor: "#fff",
+              color: "#000",
+              borderRadius: "6px",
+              borderColor: "#fff",
+              borderWidth: "2px",
+              borderStyle: "solid",
+              "&:hover": { bgcolor: "#fff", borderColor: "#dc143c" },
+              marginRight: "2rem",
+            }}
+            variant="contained"
+            onClick={clearCart}
+          >
             Limpiar carrito
           </Button>
         )}
 
         <Link to="/checkout">
-          <Button variant="contained">Finalizar compra</Button>
+          <Button
+            sx={{
+              textTransform: "none",
+              fontFamily: "Poppins",
+              fontSize: "0.9rem",
+              bgcolor: "#fff",
+              color: "#000",
+              borderRadius: "6px",
+              borderColor: "#fff",
+              borderWidth: "2px",
+              borderStyle: "solid",
+              "&:hover": { bgcolor: "#fff", borderColor: "#dc143c" },
+            }}
+            variant="contained"
+          >
+            Finalizar compra
+          </Button>
         </Link>
       </div>
     </div>
