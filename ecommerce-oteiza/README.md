@@ -23,7 +23,7 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
 1. **Clona el repositorio**:
 
    ```sh
-   git clon https://github.com/Alpatuta/ecommerce-oteizafinal
+   git clone https://github.com/Alpatuta/ecommerce-oteizafinal
 
    ```
 
