@@ -4,25 +4,44 @@ import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../fireBaseConfig";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({ nombre: "", email: "", telefono: "" });
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState("");
 
+  const formik = useFormik({
+    initialValues: { nombre: "", email: "", numero: "" },
+    validationSchema: Yup.object({
+      nombre: Yup.string()
+        .required("Este campo es obligatorio")
+        .min(5, "Mínimo 5 caracteres")
+        .max(30, "Máximo 30 caracteres"),
+      email: Yup.string()
+        .email("El email NO cumple con los parámetros obligatorios")
+        .required("Este campo es obligatorio"),
+      numero: Yup.string().required("Este campo es obligatorio"),
+    }),
+    onSubmit: (data) => {
+      handleOrderSubmission(data);
+    },
+    validateOnChange: false,
+  });
+
   let total = getTotalPrice();
 
-  const envioDeFormulario = (event) => {
-    event.preventDefault();
+  const handleOrderSubmission = (userData) => {
     let order = {
-      buyer: user,
+      buyer: userData,
       items: cart,
       total: total,
     };
 
     let ordersCollection = collection(db, "orders");
     let productCollection = collection(db, "products");
+
     cart.forEach((elemento) => {
       let refDoc = doc(productCollection, elemento.id);
       updateDoc(refDoc, { stock: elemento.stock - elemento.quantity });
@@ -31,17 +50,15 @@ const Checkout = () => {
     addDoc(ordersCollection, order)
       .then((res) => {
         setOrderId(res.id);
-        toast.success(`Compra realizada con exito. Tu ticket es: ${res.id}`);
+        toast.success(`Compra realizada con éxito. Tu ticket es: ${res.id}`);
       })
-      .catch()
+      .catch((error) => {
+        toast.error("Hubo un error al procesar tu compra. Inténtalo de nuevo.");
+      })
       .finally(() => {
         clearCart();
         navigate("/");
       });
-  };
-
-  const capturarData = (event) => {
-    setUser({ ...user, [event.target.name]: event.target.value });
   };
 
   return (
@@ -56,7 +73,7 @@ const Checkout = () => {
           fontWeight: "400",
         }}
       >
-        Registre sus datos aqui.
+        Registre sus datos aquí.
       </h1>
 
       <form
@@ -68,9 +85,13 @@ const Checkout = () => {
           flexDirection: "column",
           marginTop: "2rem",
         }}
-        onSubmit={envioDeFormulario}
+        onSubmit={formik.handleSubmit}
       >
         <input
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.nombre}
+          name="nombre"
           style={{
             paddingTop: "10px",
             paddingBottom: "10px",
@@ -88,10 +109,16 @@ const Checkout = () => {
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#fff")}
           type="text"
           placeholder="Ingresa tu nombre"
-          onChange={capturarData}
-          name="nombre"
         />
+        {formik.touched.nombre && formik.errors.nombre ? (
+          <div style={{ color: "red" }}>{formik.errors.nombre}</div>
+        ) : null}
+
         <input
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
+          name="email"
           style={{
             paddingTop: "10px",
             paddingBottom: "10px",
@@ -109,10 +136,16 @@ const Checkout = () => {
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#fff")}
           type="text"
           placeholder="Ingresa tu email"
-          name="email"
-          onChange={capturarData}
         />
+        {formik.touched.email && formik.errors.email ? (
+          <div style={{ color: "red" }}>{formik.errors.email}</div>
+        ) : null}
+
         <input
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.numero}
+          name="numero"
           style={{
             paddingTop: "10px",
             paddingBottom: "10px",
@@ -129,10 +162,11 @@ const Checkout = () => {
           onMouseOver={(e) => (e.currentTarget.style.borderColor = "#dc143c")}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#fff")}
           type="text"
-          placeholder="Ingresa tu telefono"
-          name="telefono"
-          onChange={capturarData}
+          placeholder="Ingresa tu teléfono"
         />
+        {formik.touched.numero && formik.errors.numero ? (
+          <div style={{ color: "red" }}>{formik.errors.numero}</div>
+        ) : null}
 
         <button
           style={{
@@ -146,6 +180,7 @@ const Checkout = () => {
           }}
           onMouseOver={(e) => (e.currentTarget.style.borderColor = "#dc143c")}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#fff")}
+          type="submit"
         >
           Comprar
         </button>
